@@ -3,6 +3,7 @@ package com.example.hp.myapplication;
 /** * Created by hp on 15/12/2014. */
 // Some comment here to make a change in the file.
 import android.app.Activity;
+// Bla bla bla
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Intent;
