@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.content.Intent;
 
 public class Intro extends Activity {
+
+    MediaPlayer introSound;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro);
-        MediaPlayer introSound = MediaPlayer.create(Intro.this, R.raw.intro_sound);
+        introSound = MediaPlayer.create(Intro.this, R.raw.intro_sound);
         introSound.start();
         // Thread Timer
         Thread timer = new Thread() {
@@ -22,7 +25,7 @@ public class Intro extends Activity {
                     e.printStackTrace();
                 }
                 finally {
-                    Intent openStartingPoint = new Intent(Intro.this, MyActivity.class);
+                    Intent openStartingPoint = new Intent(Intro.this, Menu.class);
                     startActivity(openStartingPoint);
                 }
             }
@@ -34,7 +37,7 @@ public class Intro extends Activity {
     protected void onPause () {
         super.onPause();
         // Close this activity completely.
-        //introSound.release();
+        introSound.release(); // Just in case if sound is playing for too long, then it should end here.
         finish();
     }
 }
