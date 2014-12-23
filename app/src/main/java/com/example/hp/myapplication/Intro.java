@@ -20,11 +20,15 @@ public class Intro extends Activity {
         Thread timer = new Thread() {
             public void run() {
                 try {
+					/* Program pauses for the number of milliseconds (specified in parameter below), 
+					after which subsequent commands continue to run.*/
                     sleep(5000);
                 } catch(InterruptedException e) {
+					// Print/dsiplay the error if it happens.
                     e.printStackTrace();
                 }
                 finally {
+					// Create an intent object and start a new activity, which is the 'Menu' activity.
                     Intent openStartingPoint = new Intent(Intro.this, Menu.class);
                     startActivity(openStartingPoint);
                 }
