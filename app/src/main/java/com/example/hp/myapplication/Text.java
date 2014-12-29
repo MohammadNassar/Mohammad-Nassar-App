@@ -15,14 +15,17 @@ import java.util.Random;
 
 public class Text extends Activity {
 
+    Button checkButton;
+    ToggleButton passToggle;
+    EditText input;
+    TextView display;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text);
-        Button checkButton = (Button) findViewById(R.id.bResults);
-        final ToggleButton passToggle = (ToggleButton) findViewById(R.id.tbPassword);
-        final EditText input = (EditText) findViewById(R.id.etCommand);
-        final TextView display = (TextView) findViewById(R.id.tvResults);
+
+        initialiseVariables();
 
         passToggle.setOnClickListener(new View.OnClickListener(){
 
@@ -53,11 +56,31 @@ public class Text extends Activity {
                     display.setText("?????");
                     display.setTextSize(random.nextInt(100));
                     display.setTextColor(Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
+                    switch (random.nextInt(3)) {
+                        case 0 :
+                            display.setGravity(Gravity.START);
+                            break;
+                        case 1 :
+                            display.setGravity(Gravity.CENTER);
+                            break;
+                        case 2 :
+                            display.setGravity(Gravity.END);
+                            break;
+                    }
                 } else {
                     display.setText("invalid");
                     display.setGravity(Gravity.CENTER);
+                    display.setTextColor(Color.WHITE);
                 }
             }
         });
+    }
+
+    private void initialiseVariables() {
+
+        checkButton = (Button) findViewById(R.id.bResults);
+        passToggle = (ToggleButton) findViewById(R.id.tbPassword);
+        input = (EditText) findViewById(R.id.etCommand);
+        display = (TextView) findViewById(R.id.tvResults);
     }
 }
