@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 import java.util.Random;
 
-public class Text extends Activity {
+public class Text extends Activity implements View.OnClickListener {
 
     Button checkButton;
     ToggleButton passToggle;
@@ -27,20 +27,23 @@ public class Text extends Activity {
 
         initialiseVariables();
 
-        passToggle.setOnClickListener(new View.OnClickListener(){
+        passToggle.setOnClickListener(this);
 
-            public void onClick(View v) {
-                if (passToggle.isChecked()) {
-                    input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                } else {
-                    input.setInputType(InputType.TYPE_CLASS_TEXT);
-                }
-            }
-        });
+        checkButton.setOnClickListener(this);
+    }
 
-        checkButton.setOnClickListener(new View.OnClickListener() {
+    private void initialiseVariables() {
 
-            public void onClick(View v) {
+        checkButton = (Button) findViewById(R.id.bResults);
+        passToggle = (ToggleButton) findViewById(R.id.tbPassword);
+        input = (EditText) findViewById(R.id.etCommand);
+        display = (TextView) findViewById(R.id.tvResults);
+    }
+
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.bResults :
                 String checkStr = input.getText().toString();
                 display.setText(checkStr);
                 if (checkStr.contentEquals("start")) {
@@ -72,15 +75,14 @@ public class Text extends Activity {
                     display.setGravity(Gravity.CENTER);
                     display.setTextColor(Color.WHITE);
                 }
-            }
-        });
-    }
-
-    private void initialiseVariables() {
-
-        checkButton = (Button) findViewById(R.id.bResults);
-        passToggle = (ToggleButton) findViewById(R.id.tbPassword);
-        input = (EditText) findViewById(R.id.etCommand);
-        display = (TextView) findViewById(R.id.tvResults);
+                break;
+            case R.id.tbPassword :
+                if (passToggle.isChecked()) {
+                    input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    input.setInputType(InputType.TYPE_CLASS_TEXT);
+                }
+                break;
+        }
     }
 }
