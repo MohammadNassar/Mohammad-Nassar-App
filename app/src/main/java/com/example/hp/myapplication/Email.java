@@ -2,6 +2,7 @@ package com.example.hp.myapplication;
 
 /** * Created by hp on 21/12/2014. */
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +52,14 @@ public class Email extends Activity implements View.OnClickListener {
                 + out
                 + ".  Oh also if you get bored you should check out www.mybringback.com"
                 + '\n' + "PS. I think I love you...   :(";
+
+        //Intent emailIntent = new Intent(Intent.ACTION_CALL);
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, emailaddress);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "This is the Email Subject");
+        emailIntent.setType("plain/text");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, message);
+        startActivity(emailIntent);
 
     }
 
