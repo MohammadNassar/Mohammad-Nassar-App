@@ -4,11 +4,13 @@ package com.example.hp.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import java.io.InputStream;
 import java.io.IOException;
 
 public class Camera extends Activity implements View.OnClickListener{
@@ -25,6 +27,9 @@ public class Camera extends Activity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photo);
         initialise();
+
+        InputStream is = getResources().openRawResource(R.drawable.logo);
+        bmp = BitmapFactory.decodeStream(is);
     }
 
     private void initialise() {
