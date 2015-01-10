@@ -45,6 +45,14 @@
             android:label="Camera Application"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".Data"
+            android:label="Getting Data" >
+        </activity>
+        <activity
+            android:name=".OpenedClass"
+            android:label="Opened Class" >
+        </activity>
     </application>
 
 </manifest>
