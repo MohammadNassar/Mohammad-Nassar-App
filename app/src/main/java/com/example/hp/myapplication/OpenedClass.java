@@ -32,7 +32,12 @@ public class OpenedClass extends Activity implements View.OnClickListener, Radio
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+        switch (i) {
             case R.id.rBlue :
 
                 break;
@@ -45,10 +50,5 @@ public class OpenedClass extends Activity implements View.OnClickListener, Radio
 
                 break;
         }
-    }
-
-    @Override
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
     }
 }
