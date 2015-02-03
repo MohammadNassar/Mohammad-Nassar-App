@@ -29,7 +29,7 @@ $RECYCLE.BIN/
 *.lnk
 # ========================
 
-# ===== For OSX =====
+# ===== For Mac or Linux =====
 .DS_Store
 .AppleDouble
 .LSOverride
