@@ -13,12 +13,16 @@ public class OpenedClass extends Activity implements View.OnClickListener, Radio
     TextView question, test;
     Button returnData;
     RadioGroup rgSelectionList;
+    String gotBread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.send);
         initialise();
+        Bundle gotBasket = getIntent().getExtras();
+        gotBread = gotBasket.getString("key");
+        question.setText(gotBread);
     }
 
     private void initialise() {
@@ -26,6 +30,7 @@ public class OpenedClass extends Activity implements View.OnClickListener, Radio
         test = (TextView) findViewById(R.id.tvText);
         returnData = (Button) findViewById(R.id.bReturn);
         returnData.setOnClickListener(this);
+        rgSelectionList = (RadioGroup) findViewById(R.id.rgAnswers);
         rgSelectionList.setOnCheckedChangeListener(this);
     }
 
