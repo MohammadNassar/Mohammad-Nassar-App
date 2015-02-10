@@ -13,7 +13,7 @@ public class OpenedClass extends Activity implements View.OnClickListener, Radio
     TextView question, test;
     Button returnData;
     RadioGroup rgSelectionList;
-    String gotBread;
+    String gotBread, setData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,16 +44,17 @@ public class OpenedClass extends Activity implements View.OnClickListener, Radio
 
         switch (i) {
             case R.id.rBlue :
-
+                setData = "Probably right!";
                 break;
 
             case R.id.rGreen :
-
+                setData = "Definitely right!";
                 break;
 
             case R.id.rBoth :
-
+                setData = "Spot On!";
                 break;
         }
+        test.setText(setData);
     }
 }

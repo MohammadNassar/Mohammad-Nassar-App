@@ -32,6 +32,11 @@ public class Data extends Activity implements View.OnClickListener {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
     public void onClick(View view) {
 
         switch (view.getId()) {
@@ -43,13 +48,16 @@ public class Data extends Activity implements View.OnClickListener {
                 //We're going to label the string file: 'bread' with the name: 'Key'.
                 basket.putString("key", bread);
                 //Now we setup an intent, to hold the context of our class: 'Data' and open the class: 'OpenedClass'
-                Intent intent = new Intent(Data.this, OpenedClass.class);
+                Intent intentA = new Intent(Data.this, OpenedClass.class);
                 //Setup the basket/bundle within out intent
-                intent.putExtras(basket);
-                startActivity(intent);
+                intentA.putExtras(basket);
+                startActivity(intentA);
                 break;
             case R.id.bSAFR :
-
+                //Take the context of this class (Data), and open the class: 'OpenedClass'.
+                Intent intentB = new Intent(Data.this, OpenedClass.class);
+                //Whenever calling the method below, we need to import/override method: 'onActivityResult(...)'.
+                startActivityForResult(intentB, 0);
                 break;
         }
     }
