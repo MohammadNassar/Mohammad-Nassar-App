@@ -1,6 +1,6 @@
 package com.example.hp.myapplication;
 
-/** * Created by hp on 17/12/2014. */
+/** * Created by Mohammad Nassar on 17/12/2014. */
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;

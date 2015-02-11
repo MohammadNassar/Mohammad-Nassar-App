@@ -1,6 +1,6 @@
 package com.example.hp.myapplication;
 
-/** * Created by hp on 30/12/2014. */
+/** * Created by Mohammad Nassar on 30/12/2014. */
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;

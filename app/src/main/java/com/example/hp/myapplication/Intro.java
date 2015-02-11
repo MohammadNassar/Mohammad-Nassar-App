@@ -1,6 +1,6 @@
 package com.example.hp.myapplication;
 
-/** * Created by hp on 15/12/2014. */
+/** * Created by Mohammad Nassar on 15/12/2014. */
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;

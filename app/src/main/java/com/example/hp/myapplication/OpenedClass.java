@@ -1,6 +1,6 @@
 package com.example.hp.myapplication;
 
-/** * Created by hp on 09/01/2015. */
+/** * Created by Mohammad Nassar on 09/01/2015. */
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
