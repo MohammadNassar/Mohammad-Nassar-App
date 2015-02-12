@@ -34,6 +34,14 @@ public class Data extends Activity implements View.OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        // If operation is running fine
+        if (resultCode == RESULT_OK) {
+            //With method 'getExtras()' we refer to the Bundle that that 'data' is passing over
+            //So we're opening the basket and retrieving our String, so basically we're opening the 'backpack' received here.
+            Bundle basket = data.getExtras();
+            String str = basket.getString("answerKey");
+            gotAnswer.setText(str);
+        }
     }
 
     @Override

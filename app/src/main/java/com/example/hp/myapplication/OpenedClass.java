@@ -2,6 +2,7 @@ package com.example.hp.myapplication;
 
 /** * Created by Mohammad Nassar on 09/01/2015. */
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,9 +21,10 @@ public class OpenedClass extends Activity implements View.OnClickListener, Radio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.send);
         initialise();
+        /*//Commenting the 3 lines below to avoid an error happening when button: 'StartActivityForResult' is pressed.
         Bundle gotBasket = getIntent().getExtras();
         gotBread = gotBasket.getString("key");
-        question.setText(gotBread);
+        question.setText(gotBread);*/
     }
 
     private void initialise() {
@@ -36,7 +38,14 @@ public class OpenedClass extends Activity implements View.OnClickListener, Radio
 
     @Override
     public void onClick(View view) {
-
+        //When the button is pressed do the followng and end by finishing the activity
+        Intent person = new Intent();
+        Bundle backpack = new Bundle();
+        backpack.putString("answerKey", setData);
+        person.putExtras(backpack);
+        //Since we're starting this activity for a result, we need to give the result back
+        setResult(RESULT_OK, person);
+        finish();
     }
 
     @Override
