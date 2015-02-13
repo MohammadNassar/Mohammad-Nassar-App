@@ -4,6 +4,7 @@ package com.example.hp.myapplication;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -27,5 +28,13 @@ public class Menu extends ListActivity {
             Intent openMyActivity = new Intent(Menu.this, myActivityClass);
             startActivity(openMyActivity);
         } catch (ClassNotFoundException e) {e.printStackTrace();}
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater blowUp = getMenuInflater();
+        blowUp.inflate(R.menu.cool_menu, menu);
+        return true;
     }
 }

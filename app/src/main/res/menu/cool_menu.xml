@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never" />-->
+    <item android:title="About Us"
+        android:id="@+id/aboutUs"
+        android:numericShortcut="1"
+        android:alphabeticShortcut="a" />
+
+    <item android:title="Preferences"
+        android:id="@+id/preferences" />
+</menu>
