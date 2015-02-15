@@ -44,7 +44,9 @@ public class Menu extends ListActivity {
         //Here we set the action that happens when an item from the list is clicked
         switch(item.getItemId()) {
             case R.id.aboutUs:
-
+                //Usual way of opening an activity
+                Intent intent = new Intent("com.example.hp.myapplication.ABOUT");
+                startActivity(intent);
                 break;
             case R.id.preferences:
 
