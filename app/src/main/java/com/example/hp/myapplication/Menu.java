@@ -45,11 +45,15 @@ public class Menu extends ListActivity {
         switch(item.getItemId()) {
             case R.id.aboutUs:
                 //Usual way of opening an activity
-                Intent intent = new Intent("com.example.hp.myapplication.ABOUT");
-                startActivity(intent);
+                Intent intentForAbout = new Intent("com.example.hp.myapplication.ABOUT");
+                startActivity(intentForAbout);
                 break;
             case R.id.preferences:
-
+                Intent intentForPrefs = new Intent("com.example.hp.myapplication.Prefs");
+                startActivity(intentForPrefs);
+                break;
+            case R.id.exit:
+                finish();
                 break;
         }
         return false;

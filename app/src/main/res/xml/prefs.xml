@@ -18,6 +18,7 @@
         android:title="list"
         android:key="list"
         android:summary="This is a list to choose from"
-        android:entries="@+array/list">
+        android:entries="@array/list"
+        android:entryValues="@array/lValues">
         </ListPreference>
 </PreferenceScreen>
