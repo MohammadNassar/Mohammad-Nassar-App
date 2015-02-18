@@ -1,5 +1,5 @@
 package com.example.hp.myapplication;
-
+// PreferenceFragment - BugFix #1 has been committed on branch: 'PreferenceFragmentBugFix'
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
