@@ -1,4 +1,6 @@
 package com.example.hp.myapplication;
+
+/** * Created by Mohammad Nassar on 15/01/2015. */
 // PreferenceFragment - BugFix #1 has been committed on branch: 'PreferenceFragmentBugFix'
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
