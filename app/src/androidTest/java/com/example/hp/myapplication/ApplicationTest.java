@@ -1,5 +1,6 @@
 package com.example.hp.myapplication;
 
+/** * This Application is Designed by Mohammad Nassar. */
 import android.app.Application;
 import android.test.ApplicationTestCase;
 
