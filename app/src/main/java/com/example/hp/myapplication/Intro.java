@@ -2,9 +2,11 @@ package com.example.hp.myapplication;
 
 /** * Created by Mohammad Nassar on 15/12/2014. */
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Intent;
+import android.preference.PreferenceManager;
 
 public class Intro extends Activity {
 
@@ -15,7 +17,10 @@ public class Intro extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro);
         introSound = MediaPlayer.create(Intro.this, R.raw.intro_sound);
-        introSound.start();
+        SharedPreferences getPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean soundsOn = getPrefs.getBoolean("checkbox", true);
+        if (soundsOn == true)
+            introSound.start();
         // Thread Timer
         Thread timer = new Thread() {
             public void run() {

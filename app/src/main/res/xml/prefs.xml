@@ -9,7 +9,7 @@
         </EditTextPreference>
 
     <CheckBoxPreference
-        android:title="CheckBox"
+        android:title="Sounds/Music"
         android:defaultValue="true"
         android:key="checkbox"
         android:summary="check this box"/>
