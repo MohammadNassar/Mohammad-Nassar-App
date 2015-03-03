@@ -3,7 +3,9 @@ package com.example.hp.myapplication;
 /** * Created by Mohammad Nassar on 09/01/2015. */
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
@@ -21,6 +23,14 @@ public class OpenedClass extends Activity implements View.OnClickListener, Radio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.send);
         initialise();
+
+        SharedPreferences getData = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String et = getData.getString("name", "The name is: ");
+        String values = getData.getString("list", "5");
+        if (values.contentEquals("4")) {
+            question.setText(et);
+        }
+
         /*//Commenting the 3 lines below to avoid an error happening when button: 'StartActivityForResult' is pressed.
         Bundle gotBasket = getIntent().getExtras();
         gotBread = gotBasket.getString("key");
