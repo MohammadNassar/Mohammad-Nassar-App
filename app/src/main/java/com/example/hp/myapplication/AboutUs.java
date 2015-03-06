@@ -4,7 +4,6 @@ package com.example.hp.myapplication;
 import android.app.Activity;
 import android.os.Bundle;
 
-/** * Created by Mohammad Nassar on 15/02/2015. */
 public class AboutUs extends Activity {
 
     @Override

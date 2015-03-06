@@ -1,10 +1,10 @@
 package com.example.hp.myapplication;
 
+/** * Created by Mohammad Nassar on 15/02/2015. */
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 
-/** * Created by Mohammad Nassar on 15/02/2015. */
 public class Prefs extends PreferenceActivity {
 
     @Override
