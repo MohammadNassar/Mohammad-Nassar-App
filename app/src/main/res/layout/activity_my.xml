@@ -16,23 +16,21 @@
         android:id="@+id/tvTitle" />
 
     <Button
-        android:layout_height="wrap_content"
+        android:layout_height="50px"
         android:layout_width="250dp"
-        android:text="@string/add_one"
+        android:background="@drawable/custom_plus_buttons"
         android:layout_gravity="center"
-        android:textSize="35sp"
         android:layout_margin="5dp"
         android:id="@+id/bAdd" />
 
     <Button
-        android:layout_height="wrap_content"
+        android:layout_height="50px"
         android:layout_width="250dp"
-        android:text="@string/subtract_one"
+        android:background="@drawable/custom_minus_buttons"
         android:layout_gravity="center"
-        android:textSize="35sp"
         android:layout_margin="5dp"
         android:id="@+id/bSubtract" />
-
+    
     <TextView
         android:layout_height="50dp"
         android:layout_width="250dp"
