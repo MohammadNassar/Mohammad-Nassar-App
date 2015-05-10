@@ -18,7 +18,7 @@ public class Menu extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Fullscreen - (no text/logo at the top of the screen)
+        // Fullscreen - (no text/logo at the top of the screen) [However, the next two lines of code do not work as expected!!]
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
