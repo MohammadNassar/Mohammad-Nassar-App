@@ -1,6 +1,6 @@
 package com.example.hp.myapplication;
 
-/** * Created by hp on 15/12/2014. */
+/** * Created by Mohammad Nassar on 15/12/2014. */
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
