@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.view.View;
 
 /** * Created by mohammad.nassar on 11/05/2015. */
@@ -30,6 +32,14 @@ public class MyBringBack extends View {
         else {
             movingY = 0;
         }
+
+        // Hence: The rectangle drawn below is not shown on Android Emulator!!
+        Rect rectangle = new Rect();
+        rectangle.set(0, 400, canvas.getWidth(), 550);
+        Paint blueColor = new Paint();
+        blueColor.setColor(Color.BLUE);
+        canvas.drawRect(rectangle, blueColor);
+
         invalidate();
     }
 }
