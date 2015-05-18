@@ -3,7 +3,7 @@ package com.example.hp.myapplication;
 import android.app.Activity;
 import android.os.Bundle;
 
-/** * Created by mohammad.nassar on 11/05/2015. */
+/** * Created by Mohammad Nassar on 11/05/2015. */
 public class Graphics extends Activity {
 
     MyBringBack theView;

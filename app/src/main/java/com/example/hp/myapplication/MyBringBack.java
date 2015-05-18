@@ -9,7 +9,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.View;
 
-/** * Created by mohammad.nassar on 11/05/2015. */
+/** * Created by Mohammad Nassar on 11/05/2015. */
 public class MyBringBack extends View {
 
     Bitmap gBall;
