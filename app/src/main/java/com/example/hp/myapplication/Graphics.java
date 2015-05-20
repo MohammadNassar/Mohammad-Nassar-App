@@ -6,13 +6,13 @@ import android.os.Bundle;
 /** * Created by Mohammad Nassar on 11/05/2015. */
 public class Graphics extends Activity {
 
-    MyBringBack theView;
+    GraphicsView theView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        theView = new MyBringBack(this);
+        theView = new GraphicsView(this);
         setContentView(theView);
     }
 }

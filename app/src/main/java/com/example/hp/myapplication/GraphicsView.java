@@ -11,13 +11,13 @@ import android.graphics.Typeface;
 import android.view.View;
 
 /** * Created by Mohammad Nassar on 11/05/2015. */
-public class MyBringBack extends View {
+public class GraphicsView extends View {
 
     Bitmap gBall;
     float movingY;
     Typeface font;
 
-    public MyBringBack(Context context) {
+    public GraphicsView(Context context) {
         super(context);
         gBall = BitmapFactory.decodeResource(getResources(), R.drawable.greenball);
         movingY = 0;
