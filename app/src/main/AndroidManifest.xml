@@ -76,6 +76,10 @@
             android:name=".Graphics"
             android:label="Graphics" >
         </activity>
+        <activity
+            android:name=".GraphicsSurface"
+            android:label="GraphicsSurface" >
+        </activity>
     </application>
 
 </manifest>
