@@ -15,6 +15,25 @@ public class GraphicsSurfaceView extends SurfaceView implements Runnable {
     public GraphicsSurfaceView(Context context) {
         super(context);
         theSurfaceHolder = getHolder();
+    }
+
+    public void pause() {
+
+        isRunning = false;
+        while(true) {
+            try{
+                theThread.join();
+            }
+            catch(InterruptedException e) {
+                e.printStackTrace();
+            }
+            theThread = null;
+        }
+    }
+
+    public void resume() {
+
+        isRunning = true;
         theThread = new Thread();
         theThread.start();
     }

@@ -15,4 +15,16 @@ public class GraphicsSurface extends Activity {
         theSurfaceView = new GraphicsSurfaceView(this);
         setContentView(theSurfaceView);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        theSurfaceView.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        theSurfaceView.resume();
+    }
 }
