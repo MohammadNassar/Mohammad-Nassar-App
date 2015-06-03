@@ -10,7 +10,7 @@ public class GraphicsSurfaceView extends SurfaceView implements Runnable {
 
     SurfaceHolder theSurfaceHolder;
     Thread theThread = null;
-    boolean isRunning = true;
+    boolean isRunning = false;
 
     public GraphicsSurfaceView(Context context) {
         super(context);
@@ -19,7 +19,7 @@ public class GraphicsSurfaceView extends SurfaceView implements Runnable {
 
     public void pause() {
 
-        isRunning = false;
+        isRunning = true;
         while(true) {
             try{
                 theThread.join();
