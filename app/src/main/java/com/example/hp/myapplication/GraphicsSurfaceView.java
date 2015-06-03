@@ -33,7 +33,7 @@ public class GraphicsSurfaceView extends SurfaceView implements Runnable {
 
     public void resume() {
 
-        isRunning = false;
+        isRunning = true;
         theThread = new Thread();
         theThread.start();
     }
