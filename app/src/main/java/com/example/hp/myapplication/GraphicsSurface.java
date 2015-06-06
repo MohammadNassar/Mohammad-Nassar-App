@@ -1,8 +1,14 @@
 package com.example.hp.myapplication;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 
 /** * Created by Mohammad Nassar on 22/05/2015. */
@@ -40,5 +46,56 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
         x = motionEvent.getX();
         y = motionEvent.getY();
         return false;
+    }
+
+    public class GraphicsSurfaceView extends SurfaceView implements Runnable {
+
+        SurfaceHolder theSurfaceHolder;
+        Thread theThread = null;
+        boolean isRunning = false;
+
+        public GraphicsSurfaceView(Context context) {
+            super(context);
+            theSurfaceHolder = getHolder();
+        }
+
+        public void pause() {
+
+            isRunning = true;
+            while(true) {
+                try{
+                    theThread.join();
+                }
+                catch(InterruptedException e) {
+                    e.printStackTrace();
+                }
+                theThread = null;
+            }
+        }
+
+        public void resume() {
+
+            isRunning = true;
+            theThread = new Thread();
+            theThread.start();
+        }
+
+        @Override
+        public void run() {
+
+            while(isRunning) {
+
+                if(!theSurfaceHolder.getSurface().isValid())
+                    continue;
+
+                Canvas canvas = theSurfaceHolder.lockCanvas();
+                canvas.drawRGB(205, 25, 150);
+                if (x != 0 && y != 0) {
+                    Bitmap test = BitmapFactory.decodeResource(getResources(), R.drawable.greenball);
+                    canvas.drawBitmap(test, x, y, null);
+                }
+                theSurfaceHolder.unlockCanvasAndPost(canvas);
+            }
+        }
     }
 }
