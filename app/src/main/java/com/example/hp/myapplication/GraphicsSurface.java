@@ -45,7 +45,7 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
         // The following two lines get the values of X and Y every time the screen is touched
         x = motionEvent.getX();
         y = motionEvent.getY();
-        return false;
+        return true;
     }
 
     public class GraphicsSurfaceView extends SurfaceView implements Runnable {
@@ -92,7 +92,7 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
                 canvas.drawRGB(205, 25, 150);
                 if (x != 0 && y != 0) {
                     Bitmap test = BitmapFactory.decodeResource(getResources(), R.drawable.greenball);
-                    canvas.drawBitmap(test, x, y, null);
+                    canvas.drawBitmap(test, x-(test.getWidth()/2), y-(test.getHeight()/2), null);
                 }
                 theSurfaceHolder.unlockCanvasAndPost(canvas);
             }
