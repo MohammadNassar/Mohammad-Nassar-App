@@ -15,7 +15,8 @@ import android.view.View;
 public class GraphicsSurface extends Activity implements View.OnTouchListener {
 
     GraphicsSurfaceView theSurfaceView;
-    float x, y;
+    float x, y, sX, sY, fX, fY;
+    Bitmap test, plus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,12 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
         theSurfaceView.setOnTouchListener(this);
         x = 0;
         y = 0;
+        sX = 0;
+        sY = 0;
+        fX = 0;
+        fY = 0;
+        test = BitmapFactory.decodeResource(getResources(), R.drawable.greenball);
+        plus = BitmapFactory.decodeResource(getResources(), R.drawable.b_plus);
         setContentView(theSurfaceView);
     }
 
@@ -45,6 +52,18 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
         // The following two lines get the values of X and Y every time the screen is touched
         x = motionEvent.getX();
         y = motionEvent.getY();
+
+        switch(motionEvent.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                sX = motionEvent.getX();
+                sY = motionEvent.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                fX = motionEvent.getX();
+                fY = motionEvent.getY();
+                break;
+        }
+
         return true;
     }
 
@@ -91,8 +110,13 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
                 Canvas canvas = theSurfaceHolder.lockCanvas();
                 canvas.drawRGB(205, 25, 150);
                 if (x != 0 && y != 0) {
-                    Bitmap test = BitmapFactory.decodeResource(getResources(), R.drawable.greenball);
                     canvas.drawBitmap(test, x-(test.getWidth()/2), y-(test.getHeight()/2), null);
+                }
+                if (sX != 0 && sY != 0) {
+                    canvas.drawBitmap(plus, sX-(plus.getWidth()/2), sY-(plus.getHeight()/2), null);
+                }
+                if (fX != 0 && fY != 0) {
+                    canvas.drawBitmap(plus, fX-(plus.getWidth()/2), fY-(plus.getHeight()/2), null);
                 }
                 theSurfaceHolder.unlockCanvasAndPost(canvas);
             }
