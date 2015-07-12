@@ -15,7 +15,8 @@ import android.view.View;
 public class GraphicsSurface extends Activity implements View.OnTouchListener {
 
     GraphicsSurfaceView theSurfaceView;
-    float x, y, sX, sY, fX, fY;
+    // f for final, s for starting and d for direction
+    float x, y, sX, sY, fX, fY, dX, dY, animateX, animateY, scaledX, scaledY;
     Bitmap test, plus;
 
     @Override
@@ -30,6 +31,7 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
         sY = 0;
         fX = 0;
         fY = 0;
+        dX = dY = animateX = animateY = scaledX = scaledY = 0;
         test = BitmapFactory.decodeResource(getResources(), R.drawable.greenball);
         plus = BitmapFactory.decodeResource(getResources(), R.drawable.b_plus);
         setContentView(theSurfaceView);
@@ -61,6 +63,10 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
             case MotionEvent.ACTION_UP:
                 fX = motionEvent.getX();
                 fY = motionEvent.getY();
+                dX = fX - sX;
+                dY = fX - sY;
+                scaledX = dX/30;
+                scaledY = dX/30;
                 break;
         }
 
@@ -116,8 +122,12 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
                     canvas.drawBitmap(plus, sX-(plus.getWidth()/2), sY-(plus.getHeight()/2), null);
                 }
                 if (fX != 0 && fY != 0) {
+                    canvas.drawBitmap(test, x-(test.getWidth()/2)-animateX, y-(test.getHeight()/2)-animateY, null);
                     canvas.drawBitmap(plus, fX-(plus.getWidth()/2), fY-(plus.getHeight()/2), null);
                 }
+                animateX = animateX + scaledX;
+                animateY = animateY + scaledX;
+
                 theSurfaceHolder.unlockCanvasAndPost(canvas);
             }
         }
