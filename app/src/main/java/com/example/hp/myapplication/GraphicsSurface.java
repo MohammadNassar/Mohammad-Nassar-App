@@ -59,6 +59,7 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
             case MotionEvent.ACTION_DOWN:
                 sX = motionEvent.getX();
                 sY = motionEvent.getY();
+                dX = dY = animateX = animateY = scaledX = scaledY = fX = fY = 0;
                 break;
             case MotionEvent.ACTION_UP:
                 fX = motionEvent.getX();
@@ -67,6 +68,7 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
                 dY = fX - sY;
                 scaledX = dX/30;
                 scaledY = dX/30;
+                x = y = 0;
                 break;
         }
 
@@ -122,7 +124,7 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
                     canvas.drawBitmap(plus, sX-(plus.getWidth()/2), sY-(plus.getHeight()/2), null);
                 }
                 if (fX != 0 && fY != 0) {
-                    canvas.drawBitmap(test, x-(test.getWidth()/2)-animateX, y-(test.getHeight()/2)-animateY, null);
+                    canvas.drawBitmap(test, fX-(test.getWidth()/2)-animateX, fY-(test.getHeight()/2)-animateY, null);
                     canvas.drawBitmap(plus, fX-(plus.getWidth()/2), fY-(plus.getHeight()/2), null);
                 }
                 animateX = animateX + scaledX;
