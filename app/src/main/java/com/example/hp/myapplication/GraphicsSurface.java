@@ -51,6 +51,13 @@ public class GraphicsSurface extends Activity implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+
+        try {
+            Thread.sleep(50);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+
         // The following two lines get the values of X and Y every time the screen is touched
         x = motionEvent.getX();
         y = motionEvent.getY();
