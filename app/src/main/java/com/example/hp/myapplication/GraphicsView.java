@@ -44,7 +44,6 @@ public class GraphicsView extends View {
             movingY = 0;
         }
 
-        // Hence: The rectangle drawn below is not shown on Android Emulator!!
         Rect rectangle = new Rect();
         rectangle.set(0, 400, canvas.getWidth(), 550);
         Paint blueColor = new Paint();
