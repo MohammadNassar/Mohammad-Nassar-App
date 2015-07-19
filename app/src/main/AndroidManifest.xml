@@ -81,6 +81,10 @@
             android:name=".GraphicsSurface"
             android:label="GraphicsSurface" >
         </activity>
+        <activity
+            android:name=".SoundStuff"
+            android:label="SoundStuff" >
+        </activity>
     </application>
 
 </manifest>
