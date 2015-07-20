@@ -85,6 +85,10 @@
             android:name=".SoundStuff"
             android:label="SoundStuff" >
         </activity>
+        <activity
+            android:name=".Slider"
+            android:label="Slider" >
+        </activity>
     </application>
 
 </manifest>
