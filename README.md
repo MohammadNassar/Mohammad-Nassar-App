@@ -14,3 +14,7 @@ This program is fully designed by Mohammad Nassar.
 
 - The Android version used is 'API 19'.
 - The recommended SDK (Software Development Kit) is 'Android 4.4.2 (API 19)'.
+
+###License:
+
+* All coptrights are reserved to the program author/developer Mohammad Nassar (mentioned above).
