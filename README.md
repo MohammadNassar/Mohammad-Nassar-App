@@ -18,3 +18,4 @@ This program is fully designed by Mohammad Nassar.
 ###License:
 
 * All coptrights are reserved to the program author/developer Mohammad Nassar (mentioned above).
+* Permission from author/developer is required before changing or reproducing this software.
