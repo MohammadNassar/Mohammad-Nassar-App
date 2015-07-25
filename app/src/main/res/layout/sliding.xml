@@ -8,7 +8,7 @@
         android:content="@+id/linearLayout"
         android:handle="@+id/button"
         android:id="@+id/slidingDrawer">
-
+        
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
@@ -28,5 +28,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Handle" />
+        
     </SlidingDrawer>
 </LinearLayout>
