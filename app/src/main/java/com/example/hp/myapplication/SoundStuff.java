@@ -9,7 +9,7 @@ import android.view.View;
 
 /** * Created by GBY9C3HL on 19/07/2015. */
 public class SoundStuff extends Activity implements View.OnClickListener, View.OnLongClickListener {
-
+    
     SoundPool soundPool;
     int bam = 0;
     MediaPlayer mediaPlayer;
