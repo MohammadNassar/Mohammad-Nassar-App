@@ -8,7 +8,15 @@
         android:orientation="vertical">
 
         <Button
-            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Handle 1" android:id="@+id/button1" />
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Handle 1" android:id="@+id/sdButton1" />
+        <Button
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Handle 2" android:id="@+id/sdButton2" />
+        <Button
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Handle 3" android:id="@+id/sdButton3" />
+        <Button
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Handle 4" android:id="@+id/sdButton4" />
+        <Button
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Handle 5" android:id="@+id/sdButton5" />
 
     </LinearLayout>
     <SlidingDrawer
