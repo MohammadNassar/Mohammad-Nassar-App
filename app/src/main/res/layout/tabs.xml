@@ -76,11 +76,11 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
+                    <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="tvTabs3"
-                        android:id="@+id/textView3"
+                        android:text="Add a Tab"
+                        android:id="@+id/bAddTab"
                         android:layout_gravity="bottom"
                         android:layout_weight="1" />
 
