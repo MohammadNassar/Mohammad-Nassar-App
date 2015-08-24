@@ -10,6 +10,7 @@ public class SimpleBrowser extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.simplebrowser);
 
         WebView webView = (WebView) findViewById(R.id.wvBrowser);
         webView.loadUrl("http://www.amrkhaled.net");
