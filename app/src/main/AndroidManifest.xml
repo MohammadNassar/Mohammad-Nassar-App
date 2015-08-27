@@ -90,7 +90,6 @@
             android:name=".Slider"
             android:label="Slider" >
         </activity>
-
         <activity
             android:name=".Tabs"
             android:label="Tabs" >
