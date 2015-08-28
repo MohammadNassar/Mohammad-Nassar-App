@@ -21,6 +21,9 @@ public class SimpleBrowser extends Activity implements View.OnClickListener {
         setContentView(R.layout.simplebrowser);
 
         webView = (WebView) findViewById(R.id.wvBrowser);
+        // Enable JavaScripts to run
+        webView.getSettings().setJavaScriptEnabled(true);
+
         // View URLs through my WebView; not through the default browser.
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -28,7 +31,12 @@ public class SimpleBrowser extends Activity implements View.OnClickListener {
                 return super.shouldOverrideUrlLoading(view, url);
             }
         });
-        webView.loadUrl("http://www.amrkhaled.net");
+        
+        try {
+            webView.loadUrl("http://www.amrkhaled.net");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Button go = (Button) findViewById(R.id.bGo);
         Button back = (Button) findViewById(R.id.bBack);
