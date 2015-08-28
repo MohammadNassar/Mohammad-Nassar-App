@@ -23,6 +23,10 @@ public class SimpleBrowser extends Activity implements View.OnClickListener {
         webView = (WebView) findViewById(R.id.wvBrowser);
         // Enable JavaScripts to run
         webView.getSettings().setJavaScriptEnabled(true);
+        // Zoom out the content to fit screen by width
+        webView.getSettings().setLoadWithOverviewMode(true);
+        // Enable support for the 'viewport' HTML meta tag, like a normal desktop browser
+        webView.getSettings().setUseWideViewPort(true);
 
         // View URLs through my WebView; not through the default browser.
         webView.setWebViewClient(new WebViewClient() {
@@ -31,7 +35,7 @@ public class SimpleBrowser extends Activity implements View.OnClickListener {
                 return super.shouldOverrideUrlLoading(view, url);
             }
         });
-        
+
         try {
             webView.loadUrl("http://www.amrkhaled.net");
         } catch (Exception e) {
