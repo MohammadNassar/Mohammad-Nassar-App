@@ -37,7 +37,7 @@ public class SimpleBrowser extends Activity implements View.OnClickListener {
         });
 
         try {
-            webView.loadUrl("http://www.amrkhaled.net");
+            webView.loadUrl("http://www.MohammadNassar.tumblr.com");
         } catch (Exception e) {
             e.printStackTrace();
         }
