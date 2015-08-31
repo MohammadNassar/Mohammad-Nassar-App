@@ -1,9 +1,11 @@
 package com.example.hp.myapplication;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -63,6 +65,9 @@ public class SimpleBrowser extends Activity implements View.OnClickListener {
             case R.id.bGo :
                 String urlToVisit = url.getText().toString();
                 webView.loadUrl(urlToVisit);
+                // Hide keyboard after using the URL EditText
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(url.getWindowToken(), 0);
                 break;
             case R.id.bBack :
                 if (webView.canGoBack())
