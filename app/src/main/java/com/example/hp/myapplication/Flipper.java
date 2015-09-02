@@ -17,6 +17,8 @@ public class Flipper extends Activity implements View.OnClickListener {
 
         flipper = (ViewFlipper) findViewById(R.id.viewFlipper);
         flipper.setOnClickListener(this);
+        flipper.setFlipInterval(500);
+        flipper.startFlipping();
     }
 
     @Override
