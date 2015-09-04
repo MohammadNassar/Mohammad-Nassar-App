@@ -15,6 +15,7 @@
             android:id="@+id/etURL" />
 
         <Button
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Go"
@@ -30,30 +31,34 @@
         android:weightSum="8">
 
         <Button
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Go Back a Page"
+            android:text="Back"
             android:id="@+id/bBack"
             android:layout_weight="2" />
 
         <Button
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Go Forward"
+            android:text="Forward"
             android:id="@+id/bForward"
             android:layout_weight="2" />
 
         <Button
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Refresh Page"
+            android:text="Refresh"
             android:id="@+id/bRefresh"
             android:layout_weight="2" />
 
         <Button
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Clear History"
+            android:text="Clear Data"
             android:id="@+id/bClear"
             android:layout_weight="2" />
 
