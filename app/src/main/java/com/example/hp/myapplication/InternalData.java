@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-/** * Created by GBY9C3HL on 08/09/2015. */
+/** * Created by Mohammad Said Nassar on 08/09/2015. */
 public class InternalData extends Activity implements View.OnClickListener {
 
     EditText sharedData;
