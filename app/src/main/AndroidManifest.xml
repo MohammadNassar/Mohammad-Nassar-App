@@ -106,6 +106,10 @@
             android:name=".SharedPrefs"
             android:label="SharedPrefs" >
         </activity>
+        <activity
+            android:name=".InternalData"
+            android:label="InternalData" >
+        </activity>
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class InternalData extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sharedpreferences);
+        setContentView(R.layout.internaldata);
         initVars();
     }
 
@@ -79,6 +80,30 @@ public class InternalData extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.bLoad :
+                // Loading the FileOutputStream and display the data
+                FileInputStream fis = null;
+                String collected = null;
+                try {
+                    fis = openFileInput(filename);
+                    // Create a byte array with the same length of bytes in the FileInputStream
+                    byte[] dataArray = new byte[fis.available()];
+                    while (fis.read(dataArray) != -1) {
+                        // Read all data in the file and store it in the 'collected' string variable
+                        collected = new String(dataArray);
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        // Finally lose the FileInputStream and display the read/gathered data
+                        fis.close();
+                        dataResults.setText(collected);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
 
                 break;
         }
