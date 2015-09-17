@@ -3,6 +3,7 @@ package com.example.hp.myapplication;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -80,32 +81,55 @@ public class InternalData extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.bLoad :
-                // Loading the FileOutputStream and display the data
-                FileInputStream fis = null;
-                String collected = null;
-                try {
-                    fis = openFileInput(filename);
-                    // Create a byte array with the same length of bytes in the FileInputStream
-                    byte[] dataArray = new byte[fis.available()];
-                    while (fis.read(dataArray) != -1) {
-                        // Read all data in the file and store it in the 'collected' string variable
-                        collected = new String(dataArray);
-                    }
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        // Finally lose the FileInputStream and display the read/gathered data
-                        fis.close();
-                        dataResults.setText(collected);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+                new LoadSomeData().execute(filename);
 
                 break;
+        }
+    }
+
+    public class LoadSomeData extends AsyncTask<String, Integer, String> {
+
+        protected void onPreExecute(String str) {
+            str = "JustATest";
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            // Loading the FileOutputStream and display the  data
+            FileInputStream fis = null;
+            String collected = null;
+            try {
+                fis = openFileInput(filename);
+                // Create a byte array with the same length of bytes in the FileInputStream
+                byte[] dataArray = new byte[fis.available()];
+                while (fis.read(dataArray) != -1) {
+                    // Read all data in the file and store it in the 'collected' string variable
+                    collected = new String(dataArray);
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    // Finally lose the FileInputStream and display the read/gathered data
+                    fis.close();
+                    return collected;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            return null;
+        }
+
+        protected void onProgressUpdate(Integer...progress) {
+
+        }
+
+        protected void onPostExecute(String result) {
+            dataResults.setText(result);
         }
     }
 }
