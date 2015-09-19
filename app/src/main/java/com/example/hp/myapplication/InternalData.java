@@ -1,6 +1,7 @@
 package com.example.hp.myapplication;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -89,8 +90,13 @@ public class InternalData extends Activity implements View.OnClickListener {
 
     public class LoadSomeData extends AsyncTask<String, Integer, String> {
 
-        protected void onPreExecute(String str) {
-            str = "JustATest";
+         ProgressDialog dialog;
+
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(InternalData.this);
+            dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            dialog.setMax(100);
+            dialog.show();
         }
 
         @Override
@@ -99,6 +105,18 @@ public class InternalData extends Activity implements View.OnClickListener {
             // Loading the FileOutputStream and display the  data
             FileInputStream fis = null;
             String collected = null;
+
+            for (int i = 0; i < 20; i++) {
+                publishProgress(5);
+                try {
+                    Thread.sleep(55);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            dialog.dismiss();
+
             try {
                 fis = openFileInput(filename);
                 // Create a byte array with the same length of bytes in the FileInputStream
@@ -125,7 +143,7 @@ public class InternalData extends Activity implements View.OnClickListener {
         }
 
         protected void onProgressUpdate(Integer...progress) {
-
+            dialog.incrementProgressBy(progress[0]);
         }
 
         protected void onPostExecute(String result) {
