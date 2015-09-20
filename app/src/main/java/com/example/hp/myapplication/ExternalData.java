@@ -10,8 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /*** Created by GBY9C3HL on 20/09/2015. */
 public class ExternalData extends Activity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
@@ -22,6 +28,8 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
     Spinner spinner;
     String[] paths = {"Music", "Pictures", "Download"};
     File path = null;
+    File file = null;
+
     EditText saveFile;
     Button confirm, save;
 
@@ -37,8 +45,20 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
 
         confirm = (Button) findViewById(R.id.bConfirmSaveAs);
         save = (Button) findViewById(R.id.bSaveFile);
+        saveFile = (EditText) findViewById(R.id.etSaveAs);
         confirm.setOnClickListener(this);
         save.setOnClickListener(this);
+
+        checkState();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, paths);
+
+        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    private void checkState() {
 
         state = Environment.getExternalStorageState();
         if (state.equals(Environment.MEDIA_MOUNTED)) {
@@ -60,12 +80,6 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
             canWrite.setText("false");
             canR = canW = false;
         }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, paths);
-
-        spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
     }
 
     @Override
@@ -96,7 +110,34 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
                 save.setVisibility(View.VISIBLE);
                 break;
             case R.id.bSaveFile:
+                String filenameFromEditText = saveFile.getText().toString();
+                String extension = ".png";
+                file = new File(path, filenameFromEditText + extension);
+                checkState();
 
+                if (canR == canW == true) {
+
+                    // If path doesn't exist then create it
+                    path.mkdirs();
+
+                    try {
+                        InputStream inputStream = getResources().openRawResource(R.drawable.greenball);
+                        OutputStream outputStream = new FileOutputStream(file);
+                        byte[] data = new byte[inputStream.available()];
+                        inputStream.read();
+                        outputStream.write(data);
+                        inputStream.close();
+                        outputStream.close();
+
+                        Toast toast = Toast.makeText(this, "File has been saved.", Toast.LENGTH_LONG);
+                        toast.show();
+
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
                 break;
         }
     }
