@@ -1,6 +1,8 @@
 package com.example.hp.myapplication;
 
 import android.app.Activity;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -90,10 +92,10 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
                 path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
                 break;
             case 1:
-                path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 break;
             case 2:
-                path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
                 break;
         }
     }
@@ -131,6 +133,20 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
 
                         Toast toast = Toast.makeText(this, "File has been saved.", Toast.LENGTH_LONG);
                         toast.show();
+
+                        // Update files through the MediaScanner to make the new file available to the user.
+                        MediaScannerConnection.scanFile(
+                                this,
+                                new String[] {file.toString()},
+                                null,
+                                new MediaScannerConnection.OnScanCompletedListener() {
+                                    // Once the scan is complete, display a message confirming that scan is complete.
+                                    @Override
+                                    public void onScanCompleted(String path, Uri uri) {
+                                        Toast toast = Toast.makeText(ExternalData.this, "Scan Complete", Toast.LENGTH_LONG);
+                                        toast.show();
+                                    }
+                                });
 
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
