@@ -110,6 +110,10 @@
             android:name=".InternalData"
             android:label="InternalData" >
         </activity>
+        <activity
+            android:name=".ExternalData"
+            android:label="ExternalData" >
+        </activity>
     </application>
 
 </manifest>
