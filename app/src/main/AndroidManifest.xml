@@ -115,6 +115,10 @@
             android:name=".ExternalData"
             android:label="ExternalData" >
         </activity>
+        <activity
+            android:name=".SQLiteExample"
+            android:label="SQLiteExample" >
+        </activity>
     </application>
 
 </manifest>
