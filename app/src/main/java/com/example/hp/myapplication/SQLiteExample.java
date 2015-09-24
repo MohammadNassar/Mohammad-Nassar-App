@@ -34,6 +34,13 @@ public class SQLiteExample extends Activity implements View.OnClickListener {
 
             case R.id.bSQLUpdate :
 
+                String name = sqlName.getText().toString();
+                String skill= sqlJavaSkill.getText().toString();
+
+                PassOrNot entry = new PassOrNot(SQLiteExample.this);
+                entry.open();
+                // To add data on database here
+                entry.close();
 
                 break;
 
