@@ -1,6 +1,8 @@
 package com.example.hp.myapplication;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -28,7 +30,7 @@ public class PassOrNot {
         public void onCreate(SQLiteDatabase sqLiteDatabase) {
             // Creates the database (Only called the first time the database is created)
             sqLiteDatabase.execSQL("CREATE TABLE " + DATABASE_NAME + " (" +
-                    KEY_ROW_ID + " INTEGER PRIMARY AUTOINCREMENT, " +
+                    KEY_ROW_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     KEY_NAME + " TEXT NOT NULL, " +
                     KEY_SKILL + " TEXT NOT NULL);"
             );
@@ -46,7 +48,7 @@ public class PassOrNot {
         this.context = context;
     }
 
-    public PassOrNot open() {
+    public PassOrNot open () throws SQLException {
         dbHelper = new DBHelper(context);
         database = dbHelper.getWritableDatabase();
         return this;
@@ -54,5 +56,12 @@ public class PassOrNot {
 
     public void close() {
         dbHelper.close();
+    }
+
+    public long createEntry(String name, String skill) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(KEY_NAME, name);
+        contentValues.put(KEY_SKILL, skill);
+        return database.insert(DATABASE_TABLE, null, contentValues);
     }
 }
