@@ -3,7 +3,7 @@ My first Android Project
 
 This aplication is designed for multiple purposes.
 
-This app includes many different functionalities, such as: Camera Usage, Email, Passing data between Activities, Animation & Graphics, Playing Sounds, Implementing various layouts, Customised Buttons, etc.
+This app includes many different functionalities, such as: Camera Usage, Email, Passing data between Activities, Animation & Graphics, Playing Sounds, Implementing various layouts, Customised Buttons, Customised Browser, Flipper, etc.
 
 ###Author:
 
