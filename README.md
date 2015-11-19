@@ -10,7 +10,7 @@ This app includes many different functionalities, such as: Camera Usage, Email, 
 This program is fully designed by Mohammad Nassar.
 
 
-### Build Output Description
+### Build Output Description:
 
 - The Android version used is 'API 19'.
 - The recommended SDK (Software Development Kit) is 'Android 4.4.2 (API 19)'.
